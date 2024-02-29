@@ -1,0 +1,16 @@
+<?php
+session_start();
+include 'koneksi.php';
+
+$fotoid = $_POST['fotoid'];
+$useid = $_SESSION['userid'];
+$isikomentar = $_POST['isikomentar'];
+$tanggalkomentar = date('y-m-d');
+
+$query = mysqli_query($koneksi," INSERT INTO komentarfoto VALUES('','$fotoid','$isikomentar','$tanggalkomentar')");
+
+echo "<script>
+location.href='../admin/index.php';
+</script>";
+
+?>
